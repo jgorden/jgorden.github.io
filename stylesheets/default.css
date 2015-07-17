@@ -8,6 +8,13 @@ h1 {
 	font-size:3em;
 	color:#F0DDA1;	
 }
+h2 {
+	font-size: 2em;
+	color:#F0DDA1;
+}
+h4 {
+	color:#F0DDA1;
+}
 a {
 	color:#FFE670;
 }
@@ -42,6 +49,13 @@ a.darklink {
 	background-color: #E1FFC8;
 	width: 85%;
 	height: 30em;
+	overflow: auto
+}
+#postmain {
+	background-color: #E1FFC8;
+	width: 85%;
+	height: 39em;
+	overflow: auto
 }
 #foot {
 	width: 95%;

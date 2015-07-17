@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+	<h2>Position Types in CSS</h2>
+
+	<hr>
+	<div id="calendar">
+		<table>
+			<thead>
+				<tr>
+					<th colspan=7><a href="">&lt;</a>   July 2015   <a href="">&gt;</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Su</td>
+					<td>M</td>
+					<td>T</td>
+					<td>W</td>
+					<td>Th</td>
+					<td>F</td>
+					<td>Sa</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td><a href="t1-git-blog.html">10</a></td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td><a href="t2-css-design.html">17</a></td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+					<td>23</td>
+					<td>24</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<td>26</td>
+					<td>27</td>
+					<td>28</td>
+					<td>29</td>
+					<td>30</td>
+					<td>31</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="postindex">
+		<ul>
+			<li><a href="t1-git-blog.html">Version Control and Git</a></li>
+			<li><a href="c1-chefs-kitchen.html">The DBC Philosophy</a></li>
+			<li><a href="t2-css-design.html">Position Types in CSS</a></li>
+		</ul>
+	</div>
+	<div id="postmain">
+		<p>&nbsp;&nbsp;Positioning content in CSS can be complicated. Objects on a webpage have a position type of 'static' by default, but we can change this to 'relative', 'absolute', or 'fixed'. Static simply means the objects will behave naturally in accordance with their sibling and parent objects. We will discuss the other three in the following.</p>  
+		<p>&nbsp;&nbsp;Relative positioning is fairly straight forward. It allows you to move your object around the page <em>relative</em> to it's starting position. Let's go through an example! Here we have a square div. It is in the it's natural static position. </p>
+		<p><img src="t2-css-design-imgs/1.png" /></p>
+		<p>Now let us add relative positioning to the div. We add the follwing code to our CSS document:<br>
+			&nbsp;div {<br>
+				&nbsp;&nbsp;&nbsp;position: relative;<br>
+				&nbsp;&nbsp;&nbsp;left: 100px;<br>
+				&nbsp;&nbsp;&nbsp;top:100px;<br>
+				&nbsp;}<br>
+		And the box moves!</p>
+		<p><img src="t2-css-design-imgs/2.png" /></p>
+		<p>In fact, it moves one hundred pixels from the left and one hundred pixels from the top relative to the starting position. It is also worth noting that the original position of the object is preserved. What this means is that even though we have moved our object, a new object will not be able to occupy the original position. We can see this in the following:</p> 
+		<p><img src="t2-css-design-imgs/3.png" /></p>
+		<p>Note here that the new red div ought to be in the upper left corner, but because the black one is relatively positioned, the red simply stacks underneath. 
+		<p>&nbsp;&nbsp;Absolute positioning is similar to relative positioning, but with a few key differences. Let's give our new red block the property "position: absolute;" and see what happens:</p> 
+		<p><img src="t2-css-design-imgs/4.png" /></p>
+		<p>It stacks on the black block! Absolute positioning takes an object out of the normal flow of the page, it's starting point is not preserved, in contrast with relative objects. An absolute object orients itself in relation to it's closest parent object that has relative positioning. In this case there is no parent with relative positioning for our red block, so it orients itself in relation to the &lt;body&gt; tag. This happens to be the space formerly occupied by the black block, and as a result we get this layering. Now, what if we nest the red block inside the black block in our code? Let's take a look, presented is the html and the result. Remember, the black block has relative positioning while the red has absolute:</p>
+		<p>&lt;div class="black"&gt;<br>
+			&nbsp;&nbsp;&lt;div class="red"&gt;&lt;/div&gt;<br>
+		&lt;/div&gt;</p>
+		<p><img src="t2-css-design-imgs/5.png" /></p>
+		<p>We can see now the red block is positioned relative to the parent black block, and we can move the red however we may desire.</p>
+		<p>&nbsp;&nbsp;The final position type is fixed. Fixed positioning means exactly as it sounds, the object will be stuck in place. Regardless of vertical or horizontal scrolling the object will remain fixed on the screen. This can be particularly useful for menus or navigation bars, for example.</p>
+		<p>&nbsp;&nbsp;These concepts, on paper, sound kind of complicated. Hopefully this was somewhat informative and helps explain it, but mostly I would strongly suggest just going into the chrome devtools and experiment with moving things around a page. The instant connection you can make visually when you change the code in incredibly helpful, and probably clearer than anything I could write. </p>
+	</div>
+	<hr>
+	<div id="menu">
+		<ul class="navbar">
+			<li class="bar"><a href="">Portfolio</a></li>
+			<li class="bar"><a href="">Blog</a></li>
+			<li class="bar"><a href="">About Me</a></li>
+			<li><a href="">Contact</a></li>
+		</ul>
+	</div>
+</body>
+</html>
