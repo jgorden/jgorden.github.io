@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+	<h1>Arrays and Hashes</h1>
+
+	<hr>
+	<div id="calendar">
+		<table>
+			<thead>
+				<tr>
+					<th colspan=7><a href="">&lt;</a>   July 2015   <a href="">&gt;</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Su</td>
+					<td>M</td>
+					<td>T</td>
+					<td>W</td>
+					<td>Th</td>
+					<td>F</td>
+					<td>Sa</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td><a href="t1-git-blog.html">10</a></td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td><a href="t2-css-design.html">17</a></td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+					<td><a href="t3-arrays-hashes.html">23</a></td>
+					<td>24</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<td>26</td>
+					<td>27</td>
+					<td>28</td>
+					<td>29</td>
+					<td>30</td>
+					<td>31</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="postindex">
+		<ul>
+			<li><a href="t1-git-blog.html">Version Control and Git</a></li>
+			<li><a href="c1-chefs-kitchen.html">The DBC Philosophy</a></li>
+			<li><a href="t2-css-design.html">Position Types in CSS</a></li>
+			<li><a href="t3-arrays-hashes.html">Arrays and Hashes</a></li>
+		</ul>
+	</div>
+	<div id="postmain">
+		<p>Arrays and Hashes are two ways of storing information in Ruby. I never thought of them as similar, but upon closer inspection it's true their uses are remarkably redundant. Regradless, let us explore the distinction between the two.</p>
+		<p>I like to think of an array as an ordered list. An array, for the record, is an object that house some number of elements between two squre brackets. A couple examples:</p>
+		<p>Array = [1, 2, 3]</p>
+		<p>greetings = ["hello", "hola", "ni hao"]</p>
+		<p>Pretty simple! We name an object and point it to our array, and an array is born. What gives an array it's 'order' is the way it indexes by numbers. What if, say, I wanted to call up the first item in my 'Array' array. I could put in the following:</p>
+		<p>Array[0]</p>
+		<p>and ruby would spit out '1', or the first item in the array. Arrays are indexed with numbers starting at zero, increasing by for each item. So in the 'greetings' array, greetings[0] is hello, greetings[1] is hola, and ni hao would be greetings[2]. Easy! Because of this simple indexing arrays are very easy to visualize and work with. However, sometimes we want an index that is more specific, and in these cases we use a Hash.</p>
+		<p>Hashes are basically arrays with custom indexes. The notation is a bit different, so let us use our 'greetings' array from before as an example, except this time as a hash:</p>
+		<p>greetings = {</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:English => "hello",</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Spanish => "hola",</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:Mandarin => "ni hao"</p>
+		<p>}</p> 
+		<p>The first thing that you may notice is that instead of square brackets we have curly braces. Between the braces we have what are called key value pairs. The first bit, preceded by a colon, is the key, or our index. We can make these anything we want! We then have an arrow that points to our value, in this case our greetings represented as strings. So how do we access the values? The same way with arrays! So greetings[:English] will return 'hello' and so on. The advantage here is we can order our values in a way that makes sense, such as the language and the word.</p> 
+		<p>Numbers work fine as indexes, but they are lacking when it comes to description. For times when having a set order for your items is useful, an array would be a good choice. For when you want to group the data in a way that may makes more semantic sense, use a hash. 
+	</div>
+	<hr>
+	<div id="menu">
+		<ul class="navbar">
+			<li class="bar"><a href="">Portfolio</a></li>
+			<li class="bar"><a href="">Blog</a></li>
+			<li class="bar"><a href="">About Me</a></li>
+			<li><a href="">Contact</a></li>
+		</ul>
+	</div>
+</body>
+</html>
