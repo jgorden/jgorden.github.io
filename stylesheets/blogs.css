@@ -1,19 +1,19 @@
 body {
 	color:#25331A;
-	background-color: #89B266;
+	background-color: #E1FFC8;
 	font-family: Georgia;
 }
 h1 {
 	text-align: center;
 	font-size:3em;
-	color:#F0DDA1;	
+	color:#003300;	
 }
 h2 {
 	font-size: 2em;
-	color:#F0DDA1;
+	color:#003300;
 }
 h4 {
-	color:#F0DDA1;
+	color:#003300;
 }
 a {
 	color:#FFE670;
@@ -39,35 +39,26 @@ a.darklink {
 	width:100%;
 }
 #main {
-	background-color: #E1FFC8;
 	width: 95%;
 	height: 30em;
 	margin-right: auto;
 	margin-left: auto;
 }
 #blogmain {
-	background-color: #E1FFC8;
+	background-color: white;
 	width: 85%;
 	height: 30em;
 	overflow: auto
 }
 #postmain {
-	background-color: #E1FFC8;
+	background-color: white;
 	width: 85%;
-	height: 30em;
+	height: 39em;
 	overflow: auto
-}
-#contact {
-	background-color: #E1FFC8;
-	width: 95%;
-	height: 37em;
-	margin-right: auto;
-	margin-left: auto;
 }
 #foot {
 	width: 95%;
 	height: 10em;
-	background-color: #E1FFC8;
 	border:2px solid black;
 	margin-right: auto;
 	margin-left: auto;
