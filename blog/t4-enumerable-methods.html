@@ -1,0 +1,137 @@
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+	<h2>Enumerable#cycle</h2>
+
+	<hr>
+	<div id="calendar">
+		<table>
+			<thead>
+				<tr>
+					<th colspan=7><a href="">&lt;</a>   July 2015   <a href="">&gt;</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Su</td>
+					<td>M</td>
+					<td>T</td>
+					<td>W</td>
+					<td>Th</td>
+					<td>F</td>
+					<td>Sa</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>6</td>
+					<td>7</td>
+					<td>8</td>
+					<td>9</td>
+					<td><a href="t1-git-blog.html">10</a></td>
+					<td>11</td>
+				</tr>
+				<tr>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td><a href="t2-css-design.html">17</a></td>
+					<td>18</td>
+				</tr>
+				<tr>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+					<td><a href="t3-arrays-hashes.html">23</a></td>
+					<td>24</td>
+					<td>25</td>
+				</tr>
+				<tr>
+					<td>26</td>
+					<td>27</td>
+					<td>28</td>
+					<td>29</td>
+					<td>30</td>
+					<td><a href="t4-enumerable-methods.html">31</a></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="postindex">
+		<ul>
+			<li><a href="t1-git-blog.html">Version Control and Git</a></li>
+			<li><a href="c1-chefs-kitchen.html">The DBC Philosophy</a></li>
+			<li><a href="t2-css-design.html">Position Types in CSS</a></li>
+			<li><a href="t3-arrays-hashes.html">Arrays and Hashes</a></li>
+			<li><a href="c3-thinking-style.html">Psychology and the Pitfalls of Assumption</a></li>
+			<li><a href="t4-enumerable-methods.html">Enumerable#cycle</a></li>
+			<li><a href="c4-tech-issues.html">Lack of Diversity in Tech</a></li>
+		</ul>
+	</div>
+	<div id="postmain">
+		<p>The <a href="http://ruby-doc.org/core-2.2.2/Enumerable.html#method-i-cycle" class="darklink">cycle</a> enumerable! It does exactly as it sounds. It cycles. Forever. Stealing from the ruby doc, your basic cycle syntax:</p>
+		<p></p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;a = ["a", "b", "c"]</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;a.cycle { |x| puts x }  # print, a, b, c, a, b, c,.. forever.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;a.cycle(2) { |x| puts x }  # print, a, b, c, a, b, c.</p>
+		<p></p>
+		<p>Fairly straight forward: attach the cycle method to an array, give it a code block, watch it cycle through the array applying said code block forever. If you prefer a more finite output, you can supply a number argument to the cycle method, or just put a 'break' in the code block. </p>
+		<p>An important aspect of the cycle enumeration is what happens when no code block is provided.</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;irb(main):004:0> arr = ["one", "two", "three"]<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> ["one", "two", "three"]</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum = arr.cycle<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> #&lt;Enumerator: ["one", "two", "three"]:cycle&gt;</p>
+		<p>We get an enumerator as the output. Now we can do the following:</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "one"</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "two"</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "three"</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "one"</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "two"</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.rewind<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> #&lt;Enumerator: ["one", "two", "three"]:cycle&gt;</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;enum.next<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "one"</p>
+		<p>Well now, we can now sort through our array one item at a time with the 'next' method! Notice becuase it is a cycle, even if we get to the last item in the array, calling 'next' again will return the first item of the array. This is not possible with '.each' or even something like 'arr.cycle.next'. This is because we need the enumerator returned first, which we did when we initiated the 'cycle' method without a code block. Also notice near the bottom of the example we also have the 'rewind' method. This will reset the enumerator, setting the proceding 'next' to call the first element again. </p>
+		<p>Spoiler, the cycle enumerable shines when dealing with repetitive tasks. When you want to iterate through an array or hash more than once, the cycle enumerable has your back. You can pass a code block or get even more fine grain with the enumerator and 'next' expressions. Easy! The only hazard here is the possibility of infinite loops, but as long as you are careful about ending your loops everything should be alright. </p>
+	</div>
+	<hr>
+	<div id="menu">
+		<ul class="navbar">
+			<li class="bar"><a href="">Portfolio</a></li>
+			<li class="bar"><a href="../blog_index.html">Blog</a></li>
+			<li class="bar"><a href="">About Me</a></li>
+			<li><a href="../contact.html">Contact</a></li>
+		</ul>
+	</div>
+</body>
+</html>
