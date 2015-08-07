@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/default.css">
+</head>
+
+<body>
+	<h2>Ruby Classes</h2>
+	<h4>Making Cats</h4>
+
+	<hr>
+	<div id="calendar">
+		<table>
+			<thead>
+				<tr>
+					<th colspan=7><a href="t1-git-blog.html">&lt;</a>   August 2015   <a href="">&gt;</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Su</td>
+					<td>M</td>
+					<td>T</td>
+					<td>W</td>
+					<td>Th</td>
+					<td>F</td>
+					<td>Sa</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>3</td>
+					<td>4</td>
+					<td>5</td>
+					<td>6</td>
+					<td><a href="t5-ruby-classes.html">7</a></td>
+					<td>8</td>
+				</tr>
+				<tr>
+					<td>9</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+				</tr>
+				<tr>
+					<td>16</td>
+					<td>17</td>
+					<td>18</td>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+				</tr>
+				<tr>
+					<td>23</td>
+					<td>24</td>
+					<td>25</td>
+					<td>26</td>
+					<td>27</td>
+					<td>28</td>
+					<td>29</td>
+				</tr>
+				<tr>
+					<td>30</td>
+					<td>31</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="postindex">
+		<ul>
+			<li><a href="t5-ruby-classes.html">Ruby Classes</a></li>
+
+		</ul>
+	</div>
+	<div id="postmain">
+		<p>Ruby Classes! So convenient. A class in ruby has a variety of advantages, including it's own
+			variables and methods. I like to think of a class as a shell of sorts, or perhaps a mold for creating new objects of the same type. A class is an object that's use is to create new objects. Objects that belong to this class type will inherit instance variables and methods the moment they are born, potentially saving a lot of time. Lets run through an example:</p>
+		<p>
+		class Cat<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;def initialize(name, breed, age)<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@name = name<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@breed = breed<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@age = age<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+
+			<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;def talk<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p "Meow!"<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;attr_accessor :name, :age<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;attr_reader :breed<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;attr_writer :fav_food<br>
+
+<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;def feed(food)<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if food == @fav_food<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "*chomp*" <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep 0.5 <br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts " *chomp*"<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep 1.0<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "purr purrrrr"<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.times do <br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print "."<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sleep 1.0<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puts "blegh"<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;end<br>
+		end<br>
+		</p>
+		<p>Let's break this down. We have started by opening a new class, in this case Cat. This class will act as a sort of momma cat, her children will be full fledged Cats with her contained features, but with slight individual variations.  To express these variations we define an initialization. This method makes it so when a new Cat is created, it will need three arguments passed with it, those being name, breed, and age. We can try this! How about something like:</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield = Cat.new("Garfield", "Tabby", 37)<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> #&lt;Cat:0x000000022c81f0 @name="Garfield", @breed="tabby", @age=37&gt;
+		</p>
+		<p>Notice what gets returned! There is a Cat object with it's ID, and variable assignments, except these variables have an @ sign preceding them. These are instance variables, we previously set them in the initialization. They are called 'instance' variables because every instance of the class Cat will have it's own individual value. This is in contrast with class variables(marked by @@), which will have the same value for all objects that belong to the class. </p>
+		<p>The next line shows an example of a simple instance method. We define a method 'talk', and supply the code to be run when called. This would run as follows:</p>
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;garfield.talk<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "Meow!"</p>
+		<p>Simple enough! To make instance methods out of our instance variables, we can use the shorthand attr_accessor, reader, or writer. attr_reader does what you might think, it creates a method that allows us to read a value. attr_writer is also fairly intuitive, it allows you to assign a value outside of the class code, but excludes the reading privledges. attr_accessor is simply a combination of both, one is allowed to both call the method to read the value or set a new value. Notice that name and age are set as attr_accessor. Lets say our friend Garfield is celebrating a birthday. We can change his age and check the value as follow:</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.age<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> 37<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.age = 38<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> 38<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.age<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> 38<br>
+		</p>
+		<p>Again, simple! I set 'breed' to attr_reader, you can imagine what this does. It even makes real life sense, as it isn't hard to check a cat's breed, but you would be hard pressed to change it. What about attr_writer though, where we have the yet undefined fav_food. Let's try supplying a value.</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.fav_food = "lasagna"<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "lasagna"
+		</p>
+		<p>Alright, Garfield now has a favorite food of lasagna. Let's check this now with the feed method provided:</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.feed("lasagna")<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;*chomp* *chomp*<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;purr purrrrr<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.feed("salad")<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;...blegh<br>
+		</p>
+		<p>Great! But cat's are notoriously finicky eaters, and it would make sense to be able to rewrite the favorite food. This can be done easily, in fact it is the same as what we did with age before:</p>
+		<p>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.fav_food = "tuna"<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;=> "tuna"<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.feed("lasagna")<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;...blegh<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;garfield.feed 'tuna'<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;*chomp* *chomp*<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;purr purrrrr<br>
+		</p>
+		<p>Happy cat. What we have covered here is creating a new class and supplying instance variables and methods that the new obects of the class can utilize. Instance variables are marked by an @, and the methods can be created normally by defining them or using the shorthand attr_ notation. We did not cover class variables and methods, but it could be useful to note that class variables are marked with a double @@, and the methods are defined with a self.method notation. These variables and methods operate at the class level, so if we had a Cat class method it would be called with Cat.method. Making classes allows you to create an endless number of new, similar, objects with attributes already built in. It is, indeed, a very powerful tool.</p>
+	</div>
+	<hr>
+	<div id="menu">
+		<ul class="navbar">
+			<li class="bar"><a href="">Portfolio</a></li>
+			<li class="bar"><a href="../blog_index.html">Blog</a></li>
+			<li class="bar"><a href="">About Me</a></li>
+			<li><a href="../contact.html">Contact</a></li>
+		</ul>
+	</div>
+</body>
+</html>
