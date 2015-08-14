@@ -8,8 +8,8 @@
 </head>
 
 <body>
-	<h2>Pairing and Feedback</h2>
-	<h4>So Far</h4>
+	<h2>Blocks, Procs, and Lambdas</h2>
+	<h4>An Overly Simplistic Look</h4>
 
 	<hr>
 	<div id="calendar">
@@ -95,8 +95,13 @@
 		</ul>
 	</div>
 	<div id="postmain">
-		<p>I like pairing. It has it's pros and cons, but end of the day I do enjoy it. I like the different perspective than mine. When working alone the biggest frustration is when I get stuck. I have just myself and the internet. When I am working with someone I can bounce ideas off them, they bounce ideas off me, it's a wonderful environment for productivity. If we were in the same room and could point at the screen I bet it would be even better. That said, I often times also enjoy working alone. Especially on long projects! I'll explain, even if it probably is a poor and unhealthy answer. But when I get in to something, I get IN to something. I like losing myself in a project. Like 'what is daylight, again?' lost in it. That's an exageration, what I mean is I like being selfish. When I work with someone I need to try and remember they are human and need breaks and food and tend to their own life. Perfectly acceptable! But when I work alone I can just think about myself, or really not think about myself and just think about the project. </p>
-		<p>As far as feedback goes, writing it is a struggle for me. Considering I have zero experience with this stuff it feels wrong critiquing someone else, even if they are my peer. For all I know their methods work for them, and mine would be disaster for them. I try to provide advice I think would be helpful, but bottom line is I simply do not know. That said, I did enjoy reading my feedback. Seems people want me to be more forward with my thinking. I try to be accepting of all ideas, but I suppose this has led me to hold back on my own. Clarity is also something I think I can improve a lot on, and this is echoed in a few of the pieces of feedback.</p>
+		<p>A block is a chunk of code. It's actually tough to explain in greater detail than that. Take a look at the <a href="http://ruby-doc.org/core-2.2.0/Array.html#method-i-each" class="darklink">#each</a> method for arrays. The example syntax displays as follows:</p>
+		<p>each { |item| block } → ary</p>
+		<p>Block! From my understanding, the block is in fact what goes between the curly braces {}. A chunk of code. You never really 'return' in a block, since that will return the method the block is a part of. A method, as it turns out, is really just 'yielding' blocks of code. That may sound sort of ambiguous, in essence a method is really just running a block of code in a specified way. Simple enough.</p>
+		<p>A proc is a block. Or rather, a block is an object belonging to the clas Proc. So really what I mean is a block is a Proc. Proc stands for procedure. A Proc is really just a block with a name, it has been assigned.  A basic syntax would look something like so:</p>
+		<p>name = Proc.new { |x| print x }</p>
+		<p>That seems unnecessarily complicated, why use a Proc. The answer would be if you want to save your block for use later. Writing out a block repeatedly can be a waste, so saving it eases things like call backs or passing multiple blocks to a function. </p>
+		<p>Finally, lambdas. A lambda is very similar to a Proc, the key difference being it is an anonymous function and you can call 'return' in it. Other than that it really is just behaves like a method with no name. You can create it using 'lambda {}' and but your code in the curly braces. </p>
 	</div>
 	<hr>
 	<div id="menu">
